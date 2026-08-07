@@ -32,6 +32,11 @@ Common Changes
 Thin Mode Changes
 +++++++++++++++++
 
+#)  Added an experimental Oracle Database 11g Release 2 compatibility path for
+    TCP password-authenticated connections, including SYSDBA connections. It
+    is tested with Oracle Database XE 11.2.0.2. TCPS, external authentication,
+    batch errors, and DML row counts are not supported for 11g connections.
+
 #)  Fixed bug where database object types with more than 100 attributes
     are truncated or an error is thrown.
     See `Issue #1782 <https://github.com/oracle/node-oracledb/issues/1782>`__.

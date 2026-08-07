@@ -5,9 +5,11 @@ Installing node-oracledb
 ************************
 
 By default, the node-oracledb driver is a pure JavaScript module that directly
-connects to Oracle Database 12.1 or later. This 'Thin' mode does not need
-Oracle Client libraries. The database can be on the same machine as Node.js, or
-it can be remote.
+connects to Oracle Database without Oracle Client libraries. This 'Thin' mode
+supports Oracle Database 12.1 or later. This fork also has an experimental TCP
+password-authentication compatibility path for Oracle Database 11g Release 2,
+tested with Oracle Database XE 11.2.0.2. The database can be on the same machine
+as Node.js, or it can be remote.
 
 Pre-built 'Thick' mode binaries for common architectures (Windows 64-bit, Linux
 x86_64, Linux ARM (aarch64), and macOS ARM64) are included in the node-oracledb
@@ -190,7 +192,11 @@ Supported Oracle Database Versions
 
 When node-oracledb is used in the default Thin mode, it connects directly to
 the Oracle Database and does not require Oracle Client libraries. Connections
-in this mode can be made to Oracle Database 12.1 or later.
+in this mode can be made to Oracle Database 12.1 or later. This fork also has
+an experimental compatibility path for TCP password-authenticated connections
+to Oracle Database 11g Release 2. It is tested with Oracle Database XE
+11.2.0.2, including SYSDBA connections. TCPS, external authentication,
+``batchErrors``, and ``dmlRowCounts`` are not supported for 11g connections.
 
 When node-oracledb is in :ref:`Thick mode <enablingthick>` using Oracle Client
 libraries, connections can be made to Oracle Database 11.2, or later, depending

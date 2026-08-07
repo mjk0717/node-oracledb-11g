@@ -61,8 +61,11 @@ node-oracledb Thin Mode Architecture
 ------------------------------------
 
 By default, the node-oracledb driver runs in the Thin mode which directly
-connects to Oracle Database 12.1 or later. This Thin mode does not need Oracle
-Client libraries.
+connects to Oracle Database without Oracle Client libraries. Oracle Database
+12.1 or later is supported. This fork also has an experimental TCP
+password-authentication compatibility path for Oracle Database 11g Release 2,
+tested with Oracle Database XE 11.2.0.2. This path includes SYSDBA connections,
+but does not support TCPS or external authentication.
 
 .. _thinarchfig:
 .. figure:: /images/node-oracledb-thin.png

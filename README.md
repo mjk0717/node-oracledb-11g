@@ -55,13 +55,31 @@ See [Getting Started with Node-oracledb][1] and [Quick Start Node-oracledb Insta
 
 - Oracle Database
 
-  **Thin mode**: Oracle Database 12.1 (or later) is required.
+  **Thin mode**: Oracle Database 12.1 (or later) is supported. This fork also
+  provides experimental TCP password-authentication support for Oracle
+  Database 11g Release 2, including SYSDBA connections. The compatibility path
+  is tested with Oracle Database XE 11.2.0.2. TCPS, external authentication,
+  batch errors, and DML row counts are not supported on this path.
 
   **Thick mode**: Oracle Database 11.2 (or later) is required, depending on the
   Oracle Client library version.  Oracle Database's standard client-server
   version interoperability allows connection to both older and newer
   databases. For example, when node-oracledb uses Oracle Client 19c libraries,
   then it can connect to Oracle Database 11.2 or later.
+
+## Installing This Fork Without the npm Registry
+
+Install the tagged source directly from GitHub:
+
+```shell
+npm install "github:mjk0717/node-oracledb-11g#v7.1.0-11g-thin.1"
+```
+
+Alternatively, install the npm package archive attached to the GitHub Release:
+
+```shell
+npm install "https://github.com/mjk0717/node-oracledb-11g/releases/download/v7.1.0-11g-thin.1/oracledb-7.1.0-11g-thin.1.tgz"
+```
 
 ## Documentation
 

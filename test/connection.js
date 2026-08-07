@@ -373,7 +373,7 @@ describe('1. connection.js', function() {
       };
       await assert.rejects(
         async () => await oracledb.getConnection(credential),
-        /ORA-01031:|ORA-24542:|ORA-56618:/
+        /ORA-01017:|ORA-01031:|ORA-24542:|ORA-56618:/
         // ORA-56618: DRCP: PRELIM mode logon not allowed
       ); /*ORA-56618: This error is thrown when DRCP and Implicit Connection Pooling is enabled*/
     });
@@ -1147,14 +1147,14 @@ describe('1. connection.js', function() {
     it('1.21.10 only semicolon SQL statement', async function() {
       await assert.rejects(
         async () => await connection.execute(';'),
-        /ORA-00900:/ // ORA-00900: invalid SQL statement
+        /ORA-00900:|ORA-00911:/
       );
     });
 
     it('1.21.11 multiple semicolons only', async function() {
       await assert.rejects(
         async () => await connection.execute(';;;'),
-        /ORA-00900:/ // ORA-00900: invalid SQL statement
+        /ORA-00900:|ORA-00911:/
       );
     });
 

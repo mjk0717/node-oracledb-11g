@@ -1,6 +1,6 @@
 {
   "name": "oracledb",
-  "version": "7.1.0-dev",
+  "version": "7.1.0-11g-thin.1",
   "description": "A Node.js module for Oracle Database access from JavaScript and TypeScript",
   "license": "(Apache-2.0 OR UPL-1.0)",
   "homepage": "http://oracle.github.io/node-oracledb/",
@@ -27,7 +27,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/oracle/node-oracledb.git"
+    "url": "git+https://github.com/mjk0717/node-oracledb-11g.git"
   },
   "devDependencies": {
     "@eslint/js": "9.39.1",
@@ -36,6 +36,8 @@
     "mocha": "11.7.5"
   },
   "scripts": {
+    "install": "node package/install.js",
+    "prune": "node package/prunebinaries.js",
     "test": "mocha --config test/opts/.mocharc.yaml",
     "posttest": "node test/opts/version.js",
     "buildbinary": "node package/buildbinary.js",
