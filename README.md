@@ -1,12 +1,16 @@
-# node-oracledb version 7.1.0-dev <img src="https://img.shields.io/npm/v/oracledb.svg" alt="oracledb"/>  <img src="https://img.shields.io/npm/dm/oracledb.svg" alt="oracledb"/>
+# node-oracledb 7.1.0-11g-thin.2 (unofficial fork)
 
-**This release is under development and information may be incomplete**
+> [!IMPORTANT]
+> This is an independently maintained, unofficial fork of
+> [Oracle's node-oracledb project](https://github.com/oracle/node-oracledb).
+> It is not maintained, endorsed, or supported by Oracle. The Oracle Database
+> 11g Thin compatibility path is experimental.
 
 The node-oracledb add-on for Node.js powers high performance Oracle Database
 applications.  Applications can be written in TypeScript, or directly in
 JavaScript.
 
-Use node-oracledb 7.1.0-dev to connect Node.js 14.17, or later, to Oracle
+Use this fork with Node.js 14.17, or later, to connect to Oracle
 Database.  Older versions of node-oracledb may work with older versions of
 Node.js.
 
@@ -21,12 +25,17 @@ and for starting and stopping the database.
 It also has high availability and security features. Database operations
 can optionally be [pipelined][16].
 
-The node-oracledb module is open source and maintained by Oracle Corp.
-It is stable, well documented, and has a comprehensive test suite.
+The upstream node-oracledb module is open source and maintained by Oracle.
+This fork is maintained independently by
+[mjk0717](https://github.com/mjk0717) and adds experimental Oracle Database
+11g Release 2 Thin compatibility to the upstream codebase.
 
 ## Installation
 
-Run `npm install oracledb`.
+This fork is not published to the npm registry. Running
+`npm install oracledb` installs Oracle's upstream package, not this fork.
+Install the GitHub Release package as described in
+[Installing This Fork Without the npm Registry](#installing-this-fork-without-the-npm-registry).
 
 See [Getting Started with Node-oracledb][1] and [Quick Start Node-oracledb Installation][2].
 
@@ -111,19 +120,19 @@ later Thin paths.
 Install the tagged source archive directly from GitHub:
 
 ```shell
-npm install "https://github.com/mjk0717/node-oracledb-11g/archive/refs/tags/v7.1.0-11g-thin.1.tar.gz"
+npm install "https://github.com/mjk0717/node-oracledb-11g/archive/refs/tags/v7.1.0-11g-thin.2.tar.gz"
 ```
 
 Alternatively, install the npm package archive attached to the GitHub Release:
 
 ```shell
-npm install "https://github.com/mjk0717/node-oracledb-11g/releases/download/v7.1.0-11g-thin.1/oracledb-7.1.0-11g-thin.1.tgz"
+npm install "https://github.com/mjk0717/node-oracledb-11g/releases/download/v7.1.0-11g-thin.2/oracledb-7.1.0-11g-thin.2.tgz"
 ```
 
 After downloading the archive, it can also be installed from a local path:
 
 ```shell
-npm install "./oracledb-7.1.0-11g-thin.1.tgz"
+npm install "./oracledb-7.1.0-11g-thin.2.tgz"
 ```
 
 ## Documentation
@@ -158,6 +167,13 @@ vulnerability disclosure process.
 
 Copyright (c) 2015, 2026, Oracle and/or its affiliates.
 
+Modifications Copyright (c) 2026, mjk0717.
+
+The original license notices, `NOTICE.txt`, and `THIRD_PARTY_LICENSES.txt` are
+retained in this repository and in the packaged release. The names Oracle and
+node-oracledb are used here only to identify the upstream project and the
+compatible database product; their use does not imply endorsement.
+
 This software is dual-licensed to you under the Universal Permissive License
 (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl and Apache License
 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose
@@ -180,7 +196,7 @@ limitations under the License.
 
 [1]: https://node-oracledb.readthedocs.io/en/latest/user_guide/introduction.html#getstarted
 [2]: https://node-oracledb.readthedocs.io/en/latest/user_guide/installation.html#quickstart
-[3]: https://github.com/oracle/node-oracledb/discussions
+[3]: https://github.com/mjk0717/node-oracledb-11g/issues
 [4]: https://oracle.github.io/node-oracledb
 [5]: https://node-oracledb.slack.com/
 [6]: https://join.slack.com/t/node-oracledb/shared_invite/enQtNDU4Mjc2NzM5OTA2LWMzY2ZlZDY5MDdlMGZiMGRkY2IzYjI5OGU4YTEzZWM5YjQ3ODUzMjcxNWQyNzE4MzM5YjNkYjVmNDk5OWU5NDM

@@ -1,13 +1,15 @@
 {
   "name": "oracledb",
-  "version": "7.1.0-11g-thin.1",
-  "description": "A Node.js module for Oracle Database access from JavaScript and TypeScript",
+  "version": "7.1.0-11g-thin.2",
+  "description": "Unofficial node-oracledb fork with experimental Oracle Database 11g Thin support",
+  "forkNotice": "Modified in 2026 by mjk0717 for Oracle Database 11g Thin compatibility",
   "license": "(Apache-2.0 OR UPL-1.0)",
-  "homepage": "http://oracle.github.io/node-oracledb/",
+  "homepage": "https://github.com/mjk0717/node-oracledb-11g",
   "keywords": [
     "Oracle",
     "Database",
-    "official",
+    "11g",
+    "Thin",
     "DB",
     "SQL",
     "JSON",
@@ -48,11 +50,12 @@
   },
   "maintainers": [
     {
-      "name": "Oracle Corp."
+      "name": "mjk0717",
+      "url": "https://github.com/mjk0717"
     }
   ],
   "bugs": {
-    "url": "https://github.com/oracle/node-oracledb/issues"
+    "url": "https://github.com/mjk0717/node-oracledb-11g/issues"
   },
   "main": "./index.js"
 }

@@ -1,3 +1,5 @@
+.. Modified in 2026 by mjk0717 for Oracle Database 11g Thin compatibility.
+
 .. _intro:
 
 ************************************************************
