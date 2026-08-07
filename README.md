@@ -69,10 +69,10 @@ See [Getting Started with Node-oracledb][1] and [Quick Start Node-oracledb Insta
 
 ## Installing This Fork Without the npm Registry
 
-Install the tagged source directly from GitHub:
+Install the tagged source archive directly from GitHub:
 
 ```shell
-npm install "github:mjk0717/node-oracledb-11g#v7.1.0-11g-thin.1"
+npm install "https://github.com/mjk0717/node-oracledb-11g/archive/refs/tags/v7.1.0-11g-thin.1.tar.gz"
 ```
 
 Alternatively, install the npm package archive attached to the GitHub Release:
