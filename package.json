@@ -1,6 +1,6 @@
 {
   "name": "oracledb",
-  "version": "7.1.0-11g-thin.2",
+  "version": "7.1.0-11g-thin.3",
   "description": "Unofficial node-oracledb fork with experimental Oracle Database 11g Thin support",
   "forkNotice": "Modified in 2026 by mjk0717 for Oracle Database 11g Thin compatibility",
   "license": "(Apache-2.0 OR UPL-1.0)",

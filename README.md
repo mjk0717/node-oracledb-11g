@@ -1,4 +1,4 @@
-# node-oracledb 7.1.0-11g-thin.2 (unofficial fork)
+# node-oracledb 7.1.0-11g-thin.3 (unofficial fork)
 
 > [!IMPORTANT]
 > This is an independently maintained, unofficial fork of
@@ -89,6 +89,28 @@ transactions, connection pools, CLOB locators, timestamps, PL/SQL OUT binds,
 Oracle error decoding, and SYSDBA authentication. For CLOB values, fetch a LOB
 locator and call `getData()`.
 
+### Legacy 10G Password Verifier (`0x939`)
+
+This fork implements the legacy 10G authentication exchange in an isolated
+module. It is selected only when an Oracle Database 11g Release 2 server
+returns verifier type `0x939`; the existing 11G and 12C verifier paths remain
+separate. The implementation has been integration-tested against Oracle
+Database XE 11.2.0.2 with `SEC_CASE_SENSITIVE_LOGON=FALSE` and an account whose
+`PASSWORD_VERSIONS` contains `10G 11G`.
+
+> [!WARNING]
+> The 10G verifier is a legacy, low-security protocol. Its DES-based password
+> hash has no random salt and is case-insensitive, making captured
+> authentication data susceptible to offline password guessing. Use this path
+> only when a legacy 11g server cannot be reconfigured. Prefer
+> `SEC_CASE_SENSITIVE_LOGON=TRUE`,
+> reset affected account passwords to generate an 11G verifier, and use the
+> 11G authentication path.
+
+Password text containing uppercase letters, lowercase letters, and `!` was
+tested successfully. Because the 10G verifier uppercases the credential when
+deriving its hash, letter case does not add password entropy on this path.
+
 Use the `privilege` connection property for SYSDBA:
 
 ```javascript
@@ -120,19 +142,19 @@ later Thin paths.
 Install the tagged source archive directly from GitHub:
 
 ```shell
-npm install "https://github.com/mjk0717/node-oracledb-11g/archive/refs/tags/v7.1.0-11g-thin.2.tar.gz"
+npm install "https://github.com/mjk0717/node-oracledb-11g/archive/refs/tags/v7.1.0-11g-thin.3.tar.gz"
 ```
 
 Alternatively, install the npm package archive attached to the GitHub Release:
 
 ```shell
-npm install "https://github.com/mjk0717/node-oracledb-11g/releases/download/v7.1.0-11g-thin.2/oracledb-7.1.0-11g-thin.2.tgz"
+npm install "https://github.com/mjk0717/node-oracledb-11g/releases/download/v7.1.0-11g-thin.3/oracledb-7.1.0-11g-thin.3.tgz"
 ```
 
 After downloading the archive, it can also be installed from a local path:
 
 ```shell
-npm install "./oracledb-7.1.0-11g-thin.2.tgz"
+npm install "./oracledb-7.1.0-11g-thin.3.tgz"
 ```
 
 ## Documentation

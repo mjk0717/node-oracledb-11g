@@ -34,6 +34,11 @@ Common Changes
 Thin Mode Changes
 +++++++++++++++++
 
+#)  Added an isolated legacy Oracle 10G password-verifier authentication path
+    for Oracle Database 11g Release 2 servers that select verifier type
+    ``0x939``. This low-security DES-based verifier has no random salt and is
+    case-insensitive, so the 11G verifier remains recommended.
+
 #)  Added an experimental Oracle Database 11g Release 2 compatibility path for
     TCP password-authenticated connections, including SYSDBA connections. It
     is tested with Oracle Database XE 11.2.0.2. TCPS, external authentication,

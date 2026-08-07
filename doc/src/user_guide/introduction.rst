@@ -67,7 +67,11 @@ connects to Oracle Database without Oracle Client libraries. Oracle Database
 12.1 or later is supported. This fork also has an experimental TCP
 password-authentication compatibility path for Oracle Database 11g Release 2,
 tested with Oracle Database XE 11.2.0.2. This path includes SYSDBA connections,
-but does not support TCPS or external authentication.
+but does not support TCPS or external authentication. When an 11g server
+selects the legacy 10G password verifier (``0x939``), the fork uses a separate
+compatibility implementation. Its DES-based password hash has no random salt
+and is case-insensitive, so it should only be enabled for unavoidable legacy
+use.
 
 .. _thinarchfig:
 .. figure:: /images/node-oracledb-thin.png

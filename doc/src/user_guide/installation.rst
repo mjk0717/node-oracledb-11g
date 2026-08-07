@@ -199,6 +199,10 @@ an experimental compatibility path for TCP password-authenticated connections
 to Oracle Database 11g Release 2. It is tested with Oracle Database XE
 11.2.0.2, including SYSDBA connections. TCPS, external authentication,
 ``batchErrors``, and ``dmlRowCounts`` are not supported for 11g connections.
+The fork accepts the legacy 10G password verifier (``0x939``) only on this
+11g Release 2 path. Its DES-based password hash has no random salt and is
+case-insensitive; prefer an 11G password verifier whenever the database can be
+reconfigured.
 
 When node-oracledb is in :ref:`Thick mode <enablingthick>` using Oracle Client
 libraries, connections can be made to Oracle Database 11.2, or later, depending
