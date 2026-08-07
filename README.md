@@ -59,13 +59,52 @@ See [Getting Started with Node-oracledb][1] and [Quick Start Node-oracledb Insta
   provides experimental TCP password-authentication support for Oracle
   Database 11g Release 2, including SYSDBA connections. The compatibility path
   is tested with Oracle Database XE 11.2.0.2. TCPS, external authentication,
-  batch errors, and DML row counts are not supported on this path.
+  batch errors, DML row counts, and direct CLOB-to-STRING fetch conversion are
+  not supported on this path.
 
   **Thick mode**: Oracle Database 11.2 (or later) is required, depending on the
   Oracle Client library version.  Oracle Database's standard client-server
   version interoperability allows connection to both older and newer
   databases. For example, when node-oracledb uses Oracle Client 19c libraries,
   then it can connect to Oracle Database 11.2 or later.
+
+## Oracle Database 11g Thin Compatibility
+
+This fork's 11g path is intended for Oracle Database 11g Release 2 over TCP
+using database password authentication. It has been integration-tested with
+Oracle Database XE 11.2.0.2. Oracle Database 11.2.0.4 has not yet been tested
+against this fork.
+
+The tested surface includes SQL queries, binds, DML, `executeMany()`,
+transactions, connection pools, CLOB locators, timestamps, PL/SQL OUT binds,
+Oracle error decoding, and SYSDBA authentication. For CLOB values, fetch a LOB
+locator and call `getData()`.
+
+Use the `privilege` connection property for SYSDBA:
+
+```javascript
+const oracledb = require('oracledb');
+
+const connection = await oracledb.getConnection({
+  user: 'sys',
+  password: process.env.ORACLE_PASSWORD,
+  connectString: '127.0.0.1:1521/XE',
+  privilege: oracledb.SYSDBA
+});
+
+try {
+  const result = await connection.execute(
+    "SELECT SYS_CONTEXT('USERENV', 'ISDBA') FROM DUAL"
+  );
+  console.log(result.rows); // [["TRUE"]]
+} finally {
+  await connection.close();
+}
+```
+
+The 11g path rejects TCPS, external authentication, `batchErrors`, and
+`dmlRowCounts`. These restrictions do not change the Oracle Database 12.1 and
+later Thin paths.
 
 ## Installing This Fork Without the npm Registry
 
