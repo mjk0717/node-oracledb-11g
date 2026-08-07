@@ -81,6 +81,12 @@ Alternatively, install the npm package archive attached to the GitHub Release:
 npm install "https://github.com/mjk0717/node-oracledb-11g/releases/download/v7.1.0-11g-thin.1/oracledb-7.1.0-11g-thin.1.tgz"
 ```
 
+After downloading the archive, it can also be installed from a local path:
+
+```shell
+npm install "./oracledb-7.1.0-11g-thin.1.tgz"
+```
+
 ## Documentation
 
 See [Documentation for the Oracle Database Node.js Add-on][9] and the [release
